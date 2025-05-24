@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <title>作品六：文件間餘弦相似度熱力圖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container py-5">
+    <h1 class="text-center mb-4">📘 作品六：文件間餘弦相似度熱力圖</h1>
+
+    <div class="text-center mb-4">
+      <img src="cosine_heatmap.png" alt="文件間相似度熱力圖" class="img-fluid rounded" style="max-width: 600px;">
+    </div>
+
+    <div class="mb-5">
+      <h4>📘 內容說明</h4>
+      <ul>
+        這張圖是使用 Python 所繪製的「文件間餘弦相似度熱力圖」，主要功能是比較每份中文文件彼此之間的語意相似程度。
+        <li><strong>座標軸標籤：</strong>橫軸與縱軸皆為文件名稱（doc1 ~ doc4）。</li>
+        <li><strong>數值顯示：</strong>方格中的數值為每兩份文件的餘弦相似度（cosine similarity），數值越接近 1 表示語意越相似。</li>
+        <li><strong>顏色強度：</strong>藍色越深表示相似度越高，白色則代表幾乎沒有相似性。</li>
+      </ul>
+    </div>
+
+    <div class="mb-5">
+      <h4>🔍 圖中可觀察到</h4>
+      <ul>
+        <li>doc1 與 doc4 的相似度最高（0.57），顯示語句內容相近。</li>
+        <li>doc2 與其他文件幾乎都低於 0.3，說明語意差異較大。</li>
+        <li>所有文件與自己比的相似度均為 1（對角線）。</li>
+      </ul>
+    </div>
+
+    <div class="mb-5">
+      <h4>🧠 程式設計說明</h4>
+      <ol>
+        <li><strong>斷詞處理：</strong>使用 jieba 將中文句子分詞，讓電腦能夠理解詞彙結構。</li>
+        <li><strong>向量化表示：</strong>利用 TfidfVectorizer 將每份文件轉換為數字向量，根據詞頻與逆文件頻率進行加權。</li>
+        <li><strong>計算相似度：</strong>將向量餘弦相似度輸出為矩陣，顯示每份文件之間的語意距離。</li>
+        <li><strong>視覺化結果：</strong>使用 seaborn.heatmap() 將相似度矩陣轉為熱力圖，提升可讀性。</li>
+      </ol>
+    </div>
+
+    <div class="mb-5">
+      <h4>✍️ 學習應用心得</h4>
+      <p>
+        這是我第一次用程式「具體比較」不同中文句子之間的語意相似度，真的滿有趣的！<br>
+        一開始我還不知道 TfidfVectorizer 到底在幹嘛，但實際看完相似度熱力圖之後，我發現原來它是透過詞彙的權重，幫我們找到「語意上比較像」的句子。比如圖中 doc1 和 doc4 相似度高，是因為兩句話幾乎一樣，只差在標點或語氣。<br>
+        而 doc2 雖然也有「這份文件」這樣的結構，但因為語句順序與其他不一樣，所以整體相似度就很低。這也讓我理解到「語句結構」和「詞頻」真的會大大影響向量結果。<br>
+        最後用 seaborn 畫出熱力圖，感覺資訊更清楚了，也很適合拿來做報告展示。這堂課讓我覺得自然語言處理不只是理論，真的能用程式跑出「語意分析」的結果，超有成就感！
+      </p>
+    </div>
+
+    <div class="text-center">
+      <a href="index.html" class="btn btn-secondary">← 回到首頁</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

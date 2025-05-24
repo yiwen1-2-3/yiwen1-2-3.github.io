@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <title>作品五：LangChain RAG 法規問答系統</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container py-5">
+    <h1 class="text-center mb-4">📘 作品五：LangChain RAG 法規問答系統</h1>
+
+    <div class="text-center mb-4">
+      <img src="rag_car_law_demo.png" alt="RAG 問答系統畫面" class="img-fluid rounded" style="max-width: 700px;">
+    </div>
+
+    <div class="mb-5">
+      <h4>📘 內容說明</h4>
+      <p>本系統是以 LangChain + Streamlit 實作的 RAG（Retrieval-Augmented Generation）法規問答平台，使用者可上傳車輛法規 PDF 並用自然語言提問，由 AI 模型根據檢索段落生成回應，有效提升查詢效率。</p>
+    </div>
+
+    <div class="mb-5">
+      <h4>🧠 程式設計說明</h4>
+      <ul>
+        <li><strong>環境與模型初始化：</strong>
+          <ul>
+            <li>載入 OpenAI API 金鑰</li>
+            <li>初始化 GPT-3.5 模型與向量嵌入模型（OpenAIEmbeddings）</li>
+          </ul>
+        </li>
+        <li><strong>PDF 上傳與處理：</strong>
+          <ul>
+            <li>上傳法規 PDF（如 CarRegulations_True_or_False_Questions.pdf）</li>
+            <li>使用 PyPDFLoader 分割為多個段落 chunks</li>
+          </ul>
+        </li>
+        <li><strong>建立向量資料庫：</strong>
+          <ul>
+            <li>使用 text-embedding-3-large 模型將文字轉為向量</li>
+            <li>儲存在本地 Chroma 向量資料庫中</li>
+          </ul>
+        </li>
+        <li><strong>問答與檢索：</strong>
+          <ul>
+            <li>使用者輸入問題，Retriever 擷取最相關段落</li>
+            <li>GPT 模型整合 context 與問題後生成回答</li>
+          </ul>
+        </li>
+        <li><strong>展示與下載：</strong>
+          <ul>
+            <li>顯示 AI 回答與參考段落</li>
+            <li>可下載回答（rag_result_*.txt）</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mb-5">
+      <h4>✍️ 學習應用心得</h4>
+      <ul>
+        <li><strong>🔍 深化對 RAG 架構的理解：</strong> RAG 是結合文件檢索與生成式 AI 的利器，適合回答特定資料集的查詢任務。</li>
+        <li><strong>📚 強化資料導向的 AI 應用思維：</strong> 使用檢索限制模型回答內容，減少幻覺（hallucination）問題。</li>
+        <li><strong>🖥️ 學會模組整合協作：</strong> 從嵌入、查詢到生成與前端展示，完整實作 AI 工具鏈。</li>
+        <li><strong>🛠️ 擴充性高：</strong> 可延伸應用至：
+          <ul>
+            <li>法律諮詢（勞基法、智慧財產權）</li>
+            <li>醫療規範或指引查詢</li>
+            <li>校內行政規章自助系統</li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        這個專案不僅讓我學會實作 RAG 系統，也真正體驗了 AI 如何強化現有資料的查詢與應用方式，是我學習生成式 AI 應用中非常具代表性的經驗之一。
+      </p>
+    </div>
+
+    <div class="text-center">
+      <a href="index.html" class="btn btn-secondary">← 回到首頁</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

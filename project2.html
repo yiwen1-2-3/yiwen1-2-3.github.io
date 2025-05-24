@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <title>作品二：Teachable Machine + TensorFlow 即時影像辨識</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container py-5">
+    <h1 class="text-center mb-4">📘 作品二：Teachable Machine + TensorFlow 即時影像辨識</h1>
+
+    <div class="text-center mb-4">
+      <img src="tm_live_result.png" alt="即時辨識畫面" class="img-fluid rounded" style="max-width: 600px;">
+    </div>
+
+    <div class="mb-5">
+      <h4>📘 內容說明</h4>
+      <ul>
+        <li><strong>分類標籤：</strong> 模型預測三個類別：mouse、phone、bottle。</li>
+        <li><strong>即時預測結果：</strong> 畫面左側顯示每個類別的機率：
+          <ul>
+            <li>phone: 0.5770754（即 57.7% 的機率是手機）</li>
+            <li>bottle: 0.0151199</li>
+            <li>mouse: 0.0066953</li>
+          </ul>
+        </li>
+        <li><strong>預測判定：</strong> 模型成功辨識出使用者手中物品為手機，並以大字藍色「phone」標註於畫面上方。</li>
+      </ul>
+    </div>
+
+    <div class="mb-5">
+      <h4>🧠 程式設計說明</h4>
+      <p>這段程式碼使用 TensorFlow 讀取 Teachable Machine 匯出的 <code>.h5</code> 模型，搭配 OpenCV 實作即時辨識。程式邏輯包含：</p>
+      <ul>
+        <li><code>load_model()</code> 載入訓練完成的模型（<code>keras_model.h5</code>）。</li>
+        <li>使用 <code>VideoCapture()</code> 開啟攝影機持續擷取畫面。</li>
+        <li>將影像轉為 224x224 並正規化處理。</li>
+        <li>用 <code>model.predict()</code> 預測畫面中物件類別的機率。</li>
+        <li>透過 <code>cv2.putText()</code> 將預測類別與機率顯示於畫面。</li>
+      </ul>
+      <p><strong>判斷邏輯：</strong> 若某類別的機率 &gt; 0.5，即判定為該物件，並顯示於畫面（如：phone 為藍色）。</p>
+    </div>
+
+    <div class="mb-5">
+      <h4>✍️ 學習應用心得</h4>
+      <ul>
+        <li><strong>模型建立與部署體驗完整：</strong> 從 Teachable Machine 建模，到用 Python 撰寫即時辨識流程，實際體驗了 AI 完整應用流程。</li>
+        <li><strong>即時辨識應用潛力：</strong> 即使是簡化平台訓練的小模型，辨識結果依然流暢，展現互動應用潛力。</li>
+        <li><strong>模型準確度與資料品質息息相關：</strong> 背景複雜或光源變化會影響辨識準確率，突顯資料擴增與清理的重要性。</li>
+        <li><strong>跨領域整合學習成果：</strong> 此專案整合 AI、Python 程式設計與電腦視覺，讓我更深入理解跨領域應用的實作挑戰與價值。</li>
+      </ul>
+    </div>
+
+    <div class="text-center">
+      <a href="index.html" class="btn btn-secondary">← 回到首頁</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

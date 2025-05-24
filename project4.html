@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <title>作品四：多模態 AI 應用介面實作</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container py-5">
+    <h1 class="text-center mb-4">📘 作品四：多模態 AI 應用介面實作</h1>
+
+    <div class="text-center mb-4">
+      <img src="multimodal_demo.png" alt="多模態 AI 應用畫面" class="img-fluid rounded" style="max-width: 700px;">
+    </div>
+
+    <div class="mb-5">
+      <h4>📘 內容說明</h4>
+      <p>這張圖片展示了一個整合多項 AI 技術的應用介面，包含以下流程：</p>
+      <ol>
+        <li>使用 <code>yt_dlp</code> 擷取 YouTube 串流影片，作為 OpenCV 的即時影像來源。</li>
+        <li>啟用「Run」後，AI 模型即時偵測畫面中的人物，並框選區域。</li>
+        <li>預測結果（如："person (0.52)"）直接標示於影像上。</li>
+        <li>圖片下方還展示了由語言模型（Gemma3）自動生成的圖說，說明 AI 同時具備影像理解 + 語言生成能力。</li>
+      </ol>
+    </div>
+
+    <div class="mb-5">
+      <h4>🧠 程式設計說明</h4>
+      <ol>
+        <li>📥 <strong>Youtube 影片串流下載：</strong> 使用 yt_dlp 擷取影片串流，無需下載即可串接。</li>
+        <li>🎥 <strong>OpenCV 影像處理：</strong> 實時讀取影片並逐幀處理畫面。</li>
+        <li>🧠 <strong>MediaPipe AI 偵測：</strong> 採用 EfficientDet Lite 模型辨識人物與物件。</li>
+        <li>🌐 <strong>Streamlit 互動前端：</strong> 提供按鈕啟動與可視化介面，直觀展示 AI 偵測結果。</li>
+      </ol>
+    </div>
+
+    <div class="mb-5">
+      <h4>✍️ 學習應用心得</h4>
+      <ul>
+        <li><strong>✅ 亮點一：完整串接多模態 AI 技術</strong><br>
+          從圖片偵測、到 LLM 生成圖說，再到 UI 展示，完整體驗多模態整合流程。</li>
+        <li><strong>✅ 亮點二：實作難度適中、模組化清楚</strong><br>
+          yt_dlp、MediaPipe、Streamlit 三者結合具高度模組化，適合初學者理解與進階應用。</li>
+        <li><strong>✅ 亮點三：未來應用潛力強</strong>
+          <ul>
+            <li>影片畫面講解（例如輔助視障者）</li>
+            <li>即時監控與異常辨識</li>
+            <li>多模態 AI 教學平台（圖 + 文）</li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        本作品實現了從視覺辨識到語言生成的全流程整合，讓我體驗到 AI 多模態協同的實務應用，也更加理解如何打造「可操作、可展示、可學習」的智慧應用原型。
+      </p>
+    </div>
+
+    <div class="text-center">
+      <a href="index.html" class="btn btn-secondary">← 回到首頁</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
